@@ -20,12 +20,15 @@ const MainDash = () => {
   const [cardsData1, setCardsData1] = useState(CardsData1);
   const [yearname, setYearname] = useState([]);
   const [filter, setFilter] = useState("Dublin");
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date("12/01/2021"));
+  const [endDate, setEndDate] = useState(new Date("12/31/2021"));
   const [customerSales, setCustomersales] = useState([]);
   const [departmentName, setDepartmentname] = useState([]);
   const [departmentSales, setDepartmentsales] = useState([]);
   const [customerName, setCustomername] = useState([]);
+  useEffect(() => {
+    go();
+  }, []);
 
   const go = () => {
     var payload = {
@@ -95,14 +98,15 @@ const MainDash = () => {
         </div>
         <Cards data={dashboardData} />
         <Cards1 data={dashboardData1} />
-        <h3>Total Sales</h3>
+        <h3>Yearly Total Sales</h3>
         <div className="container-fluid mt-3 mb-3">
           <Chart
             type="line"
             width="100%"
-            height={260}
+            height={240}
             series={[
               {
+                name: "Yearly sales amount",
                 data: totalSales,
               },
             ]}
@@ -123,6 +127,7 @@ const MainDash = () => {
               width={500}
               series={[
                 {
+                  name: "No. of Customers",
                   data: customerSales,
                 },
               ]}

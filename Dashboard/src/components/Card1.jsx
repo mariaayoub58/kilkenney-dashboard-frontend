@@ -63,6 +63,7 @@ function ExpandedCard1({ param, setExpanded }) {
         <Chart
           series={[
             {
+              name: "Stats per Day",
               data: param.yaxis,
             },
           ]}

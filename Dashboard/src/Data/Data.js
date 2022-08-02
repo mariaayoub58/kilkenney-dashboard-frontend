@@ -159,7 +159,7 @@ export const chartdata = {
 
   series: [
     {
-      name: "series-1",
+      name: "No. of items sold",
       data: {},
     },
   ],
